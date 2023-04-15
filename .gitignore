@@ -1,0 +1,31 @@
+# sbt generated files
+target/
+project/target/
+project/project/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Scala generated files
+*.class
+*.jar
+*.war
+*.ear
+
+# Emacs backup files
+*~
+
+# Eclipse project files
+.project
+.classpath
+
+# IntelliJ IDEA project files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# BSP config files
+.bsp/
+.metals/

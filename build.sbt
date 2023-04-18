@@ -1,4 +1,12 @@
-val moduleNames: List[String] = sys.env.getOrElse("MODULES", "").split(",").filter(_.nonEmpty).toList
+val localProperties: Map[String, String] = {
+  import java.util.Properties
+  val props = new Properties()
+  props.load(new java.io.FileInputStream("local.properties"))
+  import scala.collection.JavaConverters._
+  props.asScala.toMap
+}
+
+val moduleNames: List[String] = localProperties.getOrElse("modules", "").split(",").filter(_.nonEmpty).toList
 val subprojects = new CompositeProject {
   override def componentProjects: Seq[Project] = {
     moduleNames.map(file).map { p =>
